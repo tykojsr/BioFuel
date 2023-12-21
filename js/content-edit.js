@@ -376,22 +376,6 @@ addProduct.addEventListener("click" , async (e) => {
 	});
 
 
-	const addPointsAboutProduct = document.createElement("button");
-	addPointsAboutProduct.textContent = "add points";
-	addPointsAboutProduct.classList.add(
-	"btn",
-	"btn-primary",
-	"add-product",
-	"green-button"
-	);
-
-	addPointsAboutProduct.addEventListener("click", (e) => {
-		e.preventDefault();
-		createPointsAboutProduct(newProductDiv);
-		e.stopPropagation();
-
-	})
-
 	const deleteButton = document.createElement("button");
 	deleteButton.textContent = "Delete";
 	deleteButton.classList.add(
@@ -422,45 +406,9 @@ addProduct.addEventListener("click" , async (e) => {
 	const deleteButtonContainer = document.createElement("div");
 	deleteButtonContainer.appendChild(deleteButton);
 	newProductDiv.appendChild(deleteButtonContainer);
-
-	newProductDiv.appendChild(addPointsAboutProduct);
-	
-
 	allOurProduct.appendChild(newProductDiv);
 
-
 });
-
-function createPointsAboutProduct(newProductDiv) {
-	console.log(newProductDiv);
-	const newProductPointsDiv = document.createElement("div");
-	newProductPointsDiv.classList.add("product");
-  
-	const productPoint = document.createElement("input");
-	productPoint.type = "text";
-	productPoint.placeholder = "Sample Product Point"; // You can set the content as needed
-	productPoint.classList.add("form-control", "border", "border-primary");
-
-	const deleteButton = document.createElement("input");
-	deleteButton.type = "button";
-	deleteButton.classList.add("btn", "btn-primary", "delete-point");
-	deleteButton.value = "Delete";
-
-	deleteButton.addEventListener("click" , async() => {
-		const pointText = newProductPointsDiv.querySelector("input[type='text']");
-		await deletePointfromProductsPoints(pointText);
-		newProductPointsDiv.remove();
-
-	})
-  
-	newProductPointsDiv.appendChild(productPoint);
-	newProductPointsDiv.appendChild(deleteButton);
-  
-	 newProductDiv.appendChild(newProductPointsDiv);
-	 //allOurProduct.appendChild(newProductDiv);
-  }
-
-  
 
 
   async function uploadImageToFirebaseStorage(imageFile) {
@@ -536,17 +484,8 @@ async function collectProductFormData() {
         const imageUrl = productElement.querySelector(".preview-image")?.src || "";
 		console.log("4");
 
-        const pointsData = [];
-        const productPointsDivs = productElement.querySelectorAll(".product");
-        productPointsDivs.forEach((pointsDiv) => {
-            const pointInput = pointsDiv.querySelector("input[type='text']");
-            pointsData.push(pointInput.value);
-			console.log("5");
-        });
-		//console.log(productTitleInput.value);
-		//console.log(productDescInput.value);
 
-        if (productDescInput !== null && productTitleInput !== null && pointsData.length > 0) {
+        if (productDescInput !== null && productTitleInput !== null) {
 			console.log("6");
             let imageUrl;
 
@@ -560,7 +499,6 @@ async function collectProductFormData() {
                 title: productTitleInput.value,
                 description: productDescInput.value,
                 imageUrl: imageUrl || "", // Default to an empty string if imageUrl is not defined
-                points: pointsData,
             };
 
             productsData.products.push(product);
@@ -657,21 +595,6 @@ async function displayAllProducts() {
 		"border-primary"
 	);
 
-	const addPointsAboutProduct = document.createElement("button");
-	addPointsAboutProduct.textContent = "add points";
-	addPointsAboutProduct.classList.add(
-	"btn",
-	"btn-primary",
-	"add-product",
-	"green-button"
-	);
-
-	addPointsAboutProduct.addEventListener("click", (e) => {
-		e.preventDefault();
-		createPointsAboutProduct(newProductDiv);
-		e.stopPropagation();
-
-	})
 
 	const deleteButton = document.createElement("button");
 	deleteButton.textContent = "Delete";
@@ -706,72 +629,29 @@ async function displayAllProducts() {
 	
 
 	productsContainer.appendChild(newProductDiv);
-
-	
-	if (product.points && product.points.length > 0) {
-		product.points.forEach(point => {
-			const newProductPointsDiv = document.createElement("div");
-		    newProductPointsDiv.classList.add("product");
-			const pointElement = document.createElement('input');
-			pointElement.type = "text";
-			pointElement.placeholder = "Sample Product Point";
-			pointElement.classList.add("form-control", "border", "border-primary");
-			pointElement.value = point;
-			const deleteButton = document.createElement("button");
-	        //deleteButton.type = "button";
-	        deleteButton.classList.add("btn", "btn-primary", "delete-point");
-	        deleteButton.textContent = "Delete";
-
-			 
-		deleteButton.addEventListener("click", async (e) => {
-            e.preventDefault();
-			e.stopPropagation();
-			const pointText = newProductPointsDiv.querySelector("input[type='text']").value;
-			const productTitle = titleElement.value;
-			await deletePointfromProductsPoints(productTitle, pointText);
-			newProductPointsDiv.remove();
-		});
-            
-			newProductPointsDiv.appendChild(document.createTextNode("Product Points"));
-			newProductPointsDiv.appendChild(pointElement);
-			newProductPointsDiv.appendChild(deleteButton);
-			newProductDiv.appendChild(newProductPointsDiv);
-		});
-		
-		//productsContainer.appendChild(productDiv);
-       
-		
-	}
-
 	
 
-	
 
-	newProductDiv.appendChild(addPointsAboutProduct);
-	productsContainer.appendChild(newProductDiv);
-
-
-
-	function createPointsAboutProduct(newProductDiv) {
-		const newProductPointsDiv = document.createElement("div");
-		newProductPointsDiv.classList.add("product");
+	// function createPointsAboutProduct(newProductDiv) {
+	// 	const newProductPointsDiv = document.createElement("div");
+	// 	newProductPointsDiv.classList.add("product");
 	  
-		const productPoint = document.createElement("input");
-		productPoint.type = "text";
-		productPoint.placeholder = "Sample Product Point"; // You can set the content as needed
-		productPoint.classList.add("form-control", "border", "border-primary");
+	// 	const productPoint = document.createElement("input");
+	// 	productPoint.type = "text";
+	// 	productPoint.placeholder = "Sample Product Point"; // You can set the content as needed
+	// 	productPoint.classList.add("form-control", "border", "border-primary");
 
-		const deleteButton = document.createElement("input");
-	    deleteButton.type = "button";
-	    deleteButton.classList.add("btn", "btn-primary", "delete-point");
-	    deleteButton.value = "Delete";
+	// 	const deleteButton = document.createElement("input");
+	//     deleteButton.type = "button";
+	//     deleteButton.classList.add("btn", "btn-primary", "delete-point");
+	//     deleteButton.value = "Delete";
 	  
-		newProductPointsDiv.appendChild(productPoint);
-		newProductPointsDiv.appendChild(deleteButton);
+	// 	newProductPointsDiv.appendChild(productPoint);
+	// 	newProductPointsDiv.appendChild(deleteButton);
 	  
-		 newProductDiv.appendChild(newProductPointsDiv);
-		// productsContainer.appendChild(newProductDiv);
-	  }
+	// 	 newProductDiv.appendChild(newProductPointsDiv);
+	// 	// productsContainer.appendChild(newProductDiv);
+	//   }
 
 
       
@@ -800,6 +680,11 @@ async function deleteProduct(productDiv, productTitle) {
             await updateDoc(productsAndServicesDocRef, { products: currentProducts });
 
             console.log("Product deleted from Firestore successfully!");
+			messageElement.textContent =
+			"Product Data deleted successfully! Go to the Home Page and Refresh to see the changes.";
+		messageElement.style.color = "green";
+		messageElement.style.display = "block";
+		window.scrollTo(0, 0);
         } else {
             console.error("Product not found in Firestore.");
         }
@@ -812,43 +697,43 @@ async function deleteProduct(productDiv, productTitle) {
 }
 
 
-async function deletePointfromProductsPoints(productTitle, pointText) {
-    try {
-        // Fetch the document from Firestore
-        const productsData = await getDoc(productsAndServicesDocRef);
+// async function deletePointfromProductsPoints(productTitle, pointText) {
+//     try {
+//         // Fetch the document from Firestore
+//         const productsData = await getDoc(productsAndServicesDocRef);
         
-        // Check if the document exists
-        if (productsData.exists()) {
-            // Find the product in the array based on productTitle
-            const productIndex = productsData.data().products.findIndex(product => product.title === productTitle);
+//         // Check if the document exists
+//         if (productsData.exists()) {
+//             // Find the product in the array based on productTitle
+//             const productIndex = productsData.data().products.findIndex(product => product.title === productTitle);
 
-            if (productIndex !== -1) {
-                // Remove the specific point from the product's points array
-                const updatedPoints = productsData.data().products[productIndex].points.filter(point => point !== pointText);
+//             if (productIndex !== -1) {
+//                 // Remove the specific point from the product's points array
+//                 const updatedPoints = productsData.data().products[productIndex].points.filter(point => point !== pointText);
                 
-                // Update the document in Firestore with the modified points array
-                await updateDoc(productsAndServicesDocRef, {
-                    products: [
-                        ...productsData.data().products.slice(0, productIndex),
-                        {
-                            ...productsData.data().products[productIndex],
-                            points: updatedPoints
-                        },
-                        ...productsData.data().products.slice(productIndex + 1)
-                    ]
-                });
+//                 // Update the document in Firestore with the modified points array
+//                 await updateDoc(productsAndServicesDocRef, {
+//                     products: [
+//                         ...productsData.data().products.slice(0, productIndex),
+//                         {
+//                             ...productsData.data().products[productIndex],
+//                             points: updatedPoints
+//                         },
+//                         ...productsData.data().products.slice(productIndex + 1)
+//                     ]
+//                 });
 
-                console.log(`Point "${pointText}" deleted successfully from product "${productTitle}".`);
-            } else {
-                console.error(`Product "${productTitle}" not found in Firestore.`);
-            }
-        } else {
-            console.error("Document not found in Firestore.");
-        }
-    } catch (error) {
-        console.error("Error deleting point from Firestore: ", error);
-    }
-}
+//                 console.log(`Point "${pointText}" deleted successfully from product "${productTitle}".`);
+//             } else {
+//                 console.error(`Product "${productTitle}" not found in Firestore.`);
+//             }
+//         } else {
+//             console.error("Document not found in Firestore.");
+//         }
+//     } catch (error) {
+//         console.error("Error deleting point from Firestore: ", error);
+//     }
+// }
 
 
 // Call the display function to populate the HTML

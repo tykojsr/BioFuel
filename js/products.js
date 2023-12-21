@@ -42,43 +42,44 @@ async function populateProductsContainer() {
         const productDesp = document.createElement("p");
         productDesp.classList.add("font-weight-bold");
         productDesp.textContent = product.description;
+        productTitle.style.overflow = "hidden";
 
         // ... (existing code)
 
 // ... (existing code)
 
-const pointsDiv = document.createElement("div");
-pointsDiv.style.display = "flex";
-pointsDiv.style.flexWrap = "wrap"; // Allow points to wrap to the next line
-pointsDiv.style.wordBreak = "break-word"; // Allow breaking words to wrap onto the next line
+// const pointsDiv = document.createElement("div");
+// pointsDiv.style.display = "flex";
+// pointsDiv.style.flexWrap = "wrap"; // Allow points to wrap to the next line
+// pointsDiv.style.wordBreak = "break-word"; // Allow breaking words to wrap onto the next line
 
-product.points.forEach(pointext => {
-    const icon = document.createElement("img");
-    icon.src = "https://img.icons8.com/bubbles/50/gas-station.png";
-    icon.alt = "gas-station";
+// product.points.forEach(pointext => {
+//     const icon = document.createElement("img");
+//     icon.src = "https://img.icons8.com/bubbles/50/gas-station.png";
+//     icon.alt = "gas-station";
     
-    const pointStart = document.createElement("div");
-    pointStart.style.display = "flex";
-    pointStart.style.alignItems = "flex-start";
-    pointStart.style.width = "100%"; // Set width to 100%
-    const points = document.createElement("p");
-    points.textContent = pointext;
-    points.style.margin = "0";
+//     const pointStart = document.createElement("div");
+//     pointStart.style.display = "flex";
+//     pointStart.style.alignItems = "flex-start";
+//     pointStart.style.width = "100%"; // Set width to 100%
+//     const points = document.createElement("p");
+//     points.textContent = pointext;
+//     points.style.margin = "0";
 
-    const pointContainer = document.createElement("div");
-    pointContainer.style.display = "flex";
-    pointContainer.style.alignItems = "center";
-    pointContainer.appendChild(icon);
-    pointStart.appendChild(points);
-    pointContainer.appendChild(pointStart);
+//     const pointContainer = document.createElement("div");
+//     pointContainer.style.display = "flex";
+//     pointContainer.style.alignItems = "center";
+//     pointContainer.appendChild(icon);
+//     pointStart.appendChild(points);
+//     pointContainer.appendChild(pointStart);
 
-    pointsDiv.appendChild(pointContainer);
-});
+//     pointsDiv.appendChild(pointContainer);
+// });
 
 
         productColumn.appendChild(productTitle);
         productColumn.appendChild(productDesp);
-        productColumn.appendChild(pointsDiv);
+        // productColumn.appendChild(pointsDiv);
 
         productRow.appendChild(productColumn);
 
@@ -97,6 +98,7 @@ product.points.forEach(pointext => {
         image.src = product.imageUrl;
         image.style.maxWidth = "100%";
         image.style.height = "100%";
+        image.style.padding = "0 10px 10px 10px";
         image.style.borderRadius = "10px";
         image.alt = "image";
         imageBox.appendChild(image);
