@@ -33,6 +33,120 @@
 	<!-- Template Stylesheet -->
 	<link href="css/style.css" rel="stylesheet" />
 	<style>
+	* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.biogas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+     background: linear-gradient(45deg, #47b2e4, #091e3e);
+}
+
+.menu {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    margin-top: -90px;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li {
+    position: absolute;
+    list-style: none;
+    left: 0;
+    transform-origin: 180px;
+    transform: rotate(0deg) translateX(150px);
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.menu.active li {
+    transform: rotate(calc(360deg / 6 * var(--i)));
+}
+
+.menu li a {
+    background: #fff;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    transform: rotate(calc(360deg / -6 * var(--i)));
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    color: #111;
+    transition: 0.5s;
+    font-size: 2em;
+    /* Increased icon size */
+}
+.menu li a img:hover {
+    transform: scale(1.1);
+   
+    
+    /* Increase the image size on hover */
+}
+.menu span {
+    display: none;
+    /* Hide the spans by default */
+}
+
+.menu.active span {
+    display: block;
+    /* Show the spans when the menu is active */
+}
+
+/* .menu li a:hover {
+    color: #ff1252;
+} */
+
+.toggle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    font-size: 4em;
+    /* Increased toggle button size */
+    transition: transform 1.25s;
+    /* Center the toggle button within the menu */
+    top: 62%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.menu.active .toggle {
+    transform: rotate();
+}
+
+.menu li a {
+    /* Your existing styles */
+    position: relative;
+}
+
+.menu li a span {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    /* Adjusted font size */
+    color: white;
+}
+		</style>
+	<style>
 		/* Container styling */
 		.news-ticker-container {
 			height: 40px;
@@ -593,6 +707,64 @@
 			</div>
 		</div>
 	</div> -->
+	<!-- circle static code start  -->
+	<div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px">
+				<h5 class="fw-bold text-primary text-uppercase" id="teamTitle">
+				</h5>
+				<h1 class="mb-0" id="teamSubtitle">
+					Our Field Of Operation 
+				</h1>
+			</div>
+	<section class="biogas">
+	<div class="menu">
+      <div class="toggle"><ion-icon name="add-circle-outline"></ion-icon></div>
+      <ul>
+        <li style="--i: 0">
+          <a href="./biodesel.html"
+            ><img
+              src="https://img.icons8.com/bubbles/50/biosand-filter.png"
+              alt="biosand-filter"
+              alt=""
+            />
+            <span>Biodiesel Plant</span></a
+          >
+        </li>
+        <li style="--i: 1">
+          <a href="bioCoal.html"
+            ><img
+              src="https://img.icons8.com/color-glass/48/coal.png"
+              alt="coal"
+              alt=""
+            />
+            <span>BioCoal Plant</span></a
+          >
+        </li>
+        <li style="--i: 2">
+          <a href="Biogas.html"
+            ><img src="https://img.icons8.com/color/48/gas-industry.png"  alt="gas-industry" alt=""></ion-icon>
+            <span>Bio Gas</span></a
+          >
+        </li>
+        <li style="--i: 3">
+          <a href="./SolarPlant.html"
+            ><img src="https://img.icons8.com/fluency/48/solar-panel.png"  alt="solar-panel" alt=""></ion-icon> <span>Solar Plant</span></a
+          >
+        </li>
+        <li style="--i: 4">
+          <a href="BioDieselPump.html"
+            ><img src="https://img.icons8.com/fluency/48/gas-station.png" alt="gas-station" alt=""></ion-icon> <span>Biodiesel pump</span></a
+          >
+        </li>
+        <li style="--i: 5">
+          <a href="./ethanol.html"
+            ><img src="https://img.icons8.com/color/48/growing-plant.png" alt="growing-plant"  alt=""></ion-icon>
+            <span>Ethonal Plant</span></a
+          >
+        </li>
+      </ul>
+    </div>
+	</section>
+	<!-- circle static code end -->
 	<!-- Features Start -->
 
 	<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" id="photosection">
@@ -643,6 +815,7 @@
 							</h5>
 						</div>
 					</div>
+					
 					<!-- <p class="mb-4">
 							Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd
 							ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo
@@ -913,6 +1086,35 @@
 			},
 		});
 	</script>
+	 <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- <script>
+      let toggle = document.querySelector(".toggle");
+      let menu = document.querySelector(".menu");
+      toggle.onclick = function () {
+        menu.classList.toggle("active");
+      };
+    </script> -->
+     <script>
+      let toggle = document.querySelector(".toggle");
+      let menu = document.querySelector(".menu");
+
+      toggle.onclick = function () {
+        menu.classList.toggle("active");
+
+        // Toggle visibility of spans when clicking the toggle button
+        const spans = menu.querySelectorAll("span");
+        spans.forEach((span) => {
+          span.style.display = menu.classList.contains("active") ? "block" : "none";
+        });
+      };
+    </script>
 
 
 
