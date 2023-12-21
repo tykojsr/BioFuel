@@ -105,6 +105,7 @@ websiteContentForm.addEventListener("submit", (e) => {
 });
 
 const aboutUsCaptionInput = document.getElementById("aboutUsCaption");
+const aboutUsCaptionInput2 = document.getElementById("aboutUsCaption2");
 const aboutUsHeaderInput = document.getElementById("aboutUsHeader");
 const aboutUsFooterInput = document.getElementById("aboutUsFooter");
 const aboutUsPointsContainer = document.getElementById("aboutUsPoints");
@@ -211,6 +212,7 @@ function saveAboutUsData() {
 function collectFormData() {
 	const aboutUsData = {
 		aboutUsCaption: aboutUsCaptionInput.value,
+		aboutUsCaption2: aboutUsCaptionInput2.value,
 		aboutUsHeader: aboutUsHeaderInput.value,
 		aboutUsFooter: aboutUsFooterInput.value,
 		aboutUsPoints: [], // Initialize with an empty array
@@ -238,6 +240,7 @@ function populateAboutUsForm(docSnapshot) {
 	if (docSnapshot.exists()) {
 		const aboutUsData = docSnapshot.data();
 		aboutUsCaptionInput.value = aboutUsData.aboutUsCaption || "";
+		aboutUsCaptionInput2.value = aboutUsData.aboutUsCaption2 || "";
 		aboutUsHeaderInput.value = aboutUsData.aboutUsHeader || "";
 		aboutUsFooterInput.value = aboutUsData.aboutUsFooter || "";
 

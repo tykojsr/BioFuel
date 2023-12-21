@@ -11,6 +11,11 @@ async function populatePage() {
 		aboutUsCaption.textContent = HomePagedata.aboutUsCaption;
 	}
 
+	if (HomePagedata && HomePagedata.aboutUsCaption2) {
+		const aboutUsCaption2 = document.getElementById("aboutUsCaption2");
+		aboutUsCaption2.textContent = HomePagedata.aboutUsCaption2;
+	}
+
 	if (HomePagedata && HomePagedata.aboutUsHeader) {
 		const aboutUsHeader = document.getElementById("aboutUsHeader");
 		aboutUsHeader.textContent = HomePagedata.aboutUsHeader;
@@ -29,30 +34,31 @@ async function populatePage() {
 		aboutUsImage.style.display = "none";
 	}
 
-	if (
-		HomePagedata &&
-		HomePagedata.aboutUsPoints &&
-		Array.isArray(HomePagedata.aboutUsPoints)
-	) {
+	if (HomePagedata && HomePagedata.aboutUsPoints && Array.isArray(HomePagedata.aboutUsPoints)) {
 		const aboutUsPoints = document.getElementById("aboutUsPoints");
 		if (aboutUsPoints) {
 			HomePagedata.aboutUsPoints.forEach((point, index) => {
 				const col = document.createElement("div");
-				col.className = "col-sm-6 wow zoomIn";
+				col.className = "col-12 wow zoomIn";
 				col.setAttribute("data-wow-delay", 0.2 * (index + 1) + "s");
-
-				const pointElement = document.createElement("h5");
-				pointElement.className = "mb-3";
-				console.log(pointElement);
+	
+				const pointElement = document.createElement("div"); // Use a div instead of h5
+				pointElement.className = "mb-3 d-flex align-items-start"; // Add d-flex and align-items-start classes
+	
+				// Add the icon to the pointElement using addIconToElement function
 				addIconToElement(pointElement)
 					.then((message) => {
-						//console.log(message);
-						//console.log(pointElement); // Check if the icon is present in the pointElement
+						// Icon added successfully
 					})
 					.catch((error) => {
 						console.error(error);
 					});
-				pointElement.textContent = point;
+	
+				const textContainer = document.createElement("div");
+				textContainer.style.flexGrow = 1; // Make textContainer take up remaining space
+				textContainer.textContent = point;
+	
+				pointElement.appendChild(textContainer);
 				col.appendChild(pointElement);
 				aboutUsPoints.appendChild(col);
 			});
@@ -63,6 +69,9 @@ const addIconToElement = (pointElement) => {
 	return new Promise((resolve, reject) => {
 		const icon = document.createElement("i");
 		icon.classList.add("fas", "fa-check", "text-primary", "me-3");
+
+		icon.style.marginTop = "auto"; // Align the icon to the middle vertically
+        icon.style.marginBottom = "auto"; 
 
 		setTimeout(() => {
 			pointElement.insertBefore(icon, pointElement.firstChild);

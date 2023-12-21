@@ -59,7 +59,7 @@
 			padding: 0;
 			margin: 0;
 			white-space: nowrap;
-			animation: tickerAnimation 7s linear infinite;
+			animation: tickerAnimation 3s linear infinite;
 		}
 
 		/* Keyframe animation */
@@ -69,7 +69,7 @@
 			}
 
 			100% {
-				transform: translateX(var(--totalWidthNegative));
+				transform: translateX(-100%);
 			}
 		}
 
@@ -89,7 +89,7 @@
 			color: #fff;
 			/* White text color */
 			border-radius: 4px;
-			/* margin-right: 8px; */
+			margin-right: 8px;
 			font-weight: bold;
 		}
 
@@ -110,6 +110,7 @@
 				margin-right: 4px;
 			}
 		}
+
 
 
 		/* Modal Styles */
@@ -168,6 +169,14 @@
 			margin: 20px;
 		}
 	</style>
+
+	<!-- <style>
+		.dropdown-menu-scrollable {
+			max-height: 500px;
+			overflow-y: auto;
+			/* Enable vertical scrolling */
+		}
+	</style> -->
 
 
 </head>
@@ -251,27 +260,28 @@
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="adminActivites"
 							style="display: none">Admin Activities</a>
-						<div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start m-0">
+						<div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start m-0 "
+							style="max-height: 540px; overflow-y: auto">
 							<a href="./content-edit.html" class="dropdown-item">Change Website Content <br />Services
 								and Products</a>
 							<a href="./leads.html" class="dropdown-item">Courses Applicants</a>
 							<a href="./paymentLeads.html" class="dropdown-item">Payments Leads</a>
 							<a href="./careerLeads.html" class="dropdown-item">Carrer Leads</a>
-							<a href="./add-gallery.html" class="dropdown-item">Add Brochure and Images</a>
-							<a href="./list-gallery.html" class="dropdown-item">List Brochure and Images</a>
+							<a href="./add-gallery.html" class="dropdown-item">Add Brochure Images</a>
+							<a href="./list-gallery.html" class="dropdown-item">List Brochure Images</a>
 							<a href="./uploadContact.html" class="dropdown-item">
 								Upload Contact Info</a>
 							<a href="uploadPayment.html" class="dropdown-item">
 								Upload Payment Info</a>
 							<a href="upload-logo.html" class="dropdown-item">Upload Logo</a>
-							<a href="./uploadHomePageImg.html" class="dropdown-item">Upload Home Page Image</a>
+							<a href="./uploadHomePageImg.html" class="dropdown-item">Upload Home Page<br />Image</a>
 							<a href="./selectLogo.html" class="dropdown-item">Select Logo</a>
-							<a href="./selectHomePageImg.html" class="dropdown-item">Select Home Page Image</a>
-							<a href="./ManageNotifications.html" class="dropdown-item">Manage Notifications</a>
+							<a href="./selectHomePageImg.html" class="dropdown-item">Select Home Page<br /> Image</a>
+							<a href="./ManageNotifications.html" class="dropdown-item">Manage<br /> Notifications</a>
 							<a href="./uploadReview.html" class="dropdown-item">Manage Testimonials</a>
 							<a href="./uploadCareers.html" class="dropdown-item">Manage Careers</a>
 							<a href="uploadClient.html" class="dropdown-item">Manage Affiliations</a>
-							<a href="./uploadFounder.html" class="dropdown-item">Manage Principal Message</a>
+							<a href="./uploadFounder.html" class="dropdown-item">Manage Founders<br /> Message</a>
 							<button id="logout" style="color: red" class="nav-link custom-brand" data-bs-toggle="modal"
 								data-bs-target="#logoutConfirmationModal">
 								Logout
@@ -439,9 +449,11 @@
 						<h1 class="mb-0" id="aboutUsHeader"></h1>
 					</div>
 					<p class="mb-4" id="aboutUsCaption"></p>
+					<p class="mb-4" id="aboutUsCaption2"></p>
 					<div class="row g-0 mb-3" id="aboutUsPoints">
 						<!-- Points will be dynamically added here -->
 					</div>
+					<h3 class="mb-0" id="aboutUsFooter"></h3>
 					<a href="contact.html" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn"
 						data-wow-delay="0.9s">Contact Us</a>
 				</div>
@@ -494,7 +506,7 @@
 			</div>
 			<!-- modal ends -->
 			<div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px">
-				<h5 class="fw-bold text-primary text-uppercase">Our Courses</h5>
+				<h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
 				<h1 class="mb-0" id="servicesTitle"></h1>
 			</div>
 
@@ -611,10 +623,10 @@
 				<div class="col-lg-7">
 					<div class="section-title position-relative pb-3 mb-5">
 						<h5 class="fw-bold text-primary text-uppercase">
-							Enquiry for Admission
+							Enquiry for Products and Services
 						</h5>
 						<h1 class="mb-0">
-							Admission Open! Please Feel Free to Contact Us
+							Please Feel Free to Contact Us!
 						</h1>
 					</div>
 					<div class="row gx-3">
@@ -680,7 +692,7 @@
 								<div class="col-12">
 									<select class="form-select bg-light border-0" style="height: 55px"
 										id="servicesDropdown">
-										<option selected>Select A Course</option>
+										<option selected>Select a Service/Product</option>
 									</select>
 								</div>
 								<div class="col-12">

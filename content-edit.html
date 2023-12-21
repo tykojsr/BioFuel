@@ -39,6 +39,11 @@
 			color: white;
 		}
 
+		.delete-service {
+			background-color: red;
+			color: white;
+		}
+
 		.red-button {
 			background-color: red;
 			color: white;
@@ -332,6 +337,12 @@
 							Caption</span>
 					</div>
 					<div class="form-group mt-lg-3">
+						<label for="aboutUsCaption">About Us Caption2 : </label>
+						<input type="text" id="aboutUsCaption2" class="form-control border border-primary">
+						<span id="aboutUsCaption-error" class="error-message" style="display: none;">Enter About Us
+							Caption</span>
+					</div>
+					<div class="form-group mt-lg-3">
 						<label for="aboutUsHeader">About Us Header : </label>
 						<input type="text" id="aboutUsHeader" class="form-control border border-primary">
 						<span id="aboutUsHeader-error" class="error-message" style="display: none;">Enter About Us
@@ -365,19 +376,19 @@
 				</form>
 				<!-- About Us Ends -->
 				<!-- Our Courses Starts -->
-				<label for="toggleService">Courses Section</label>
+				<label for="toggleService">Services Section</label>
 				<div class="form-check form-switch">
 					<input class="form-check-input" type="checkbox" id="toggleService" checked>
 				</div>
 				<form id="service-content-form">
 					<div class="form-group mt-lg-3">
-						<label for="ourServicesCaption">Our Courses Caption : </label>
+						<label for="ourServicesCaption">Our Service Caption : </label>
 						<input type="text" id="ourServicesCaption" class="form-control border border-primary">
-						<span id="ourServicesCaption-error" class="error-message" style="display: none;">Enter Our
-							Courses Caption</span>
+						<span id="ourServicesCaption-error" class="error-message" style="display: none;">Enter Your
+							Service Caption</span>
 					</div>
 					<div class="form-group mt-lg-3">
-						<label for="allOurServices">Our Courses : </label>
+						<label for="allOurServices">Our Services : </label>
 						<div id="allOurServices" class="all-our-services">
 							<!-- Service 1 -->
 							<!-- <div class="service">
@@ -388,9 +399,9 @@
 							<!-- Additional services can be added here -->
 						</div>
 						<button id="addService" type="button" class="btn btn-primary mt-1">&#10011; Add
-							Courses</button>
-						<span id="allOurServices-error" class="error-message" style="display: none;">Enter Our
-							Courses</span>
+							Services</button>
+						<span id="allOurServices-error" class="error-message" style="display: none;">Enter Your
+							Services</span>
 					</div>
 					<div class="form-group mt-3">
 						<input type="submit" id="servicesSubmit" class="btn btn-primary mb-3">
