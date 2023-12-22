@@ -4,13 +4,13 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>About Us</title>
+    <title>Ethanol</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="Free HTML Templates" name="keywords" />
     <meta content="Free HTML Templates" name="description" />
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="favicon (2).ico" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
@@ -19,6 +19,33 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Rubik:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      #footer-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+        background-color: #007bff;
+        /* Replace with your desired background color */
+        padding: 0;
+        /* Remove padding */
+      }
+
+      #footer-header .navbar-brand {
+        width: 100%;
+        /* Make the anchor element span the entire width */
+        padding: 0;
+        /* Remove padding */
+      }
+
+      #footer-header h6 {
+        margin: 0;
+        /* Remove margin for the h6 element */
+      }
+    </style>
 
     <!-- Icon Font Stylesheet -->
     <link
@@ -39,19 +66,54 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
-
-    <!--All Plants cSS Links-->
     <link rel="stylesheet" href="css/AllPlants.css" />
   </head>
 
   <body>
-    <!-- Navbar Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <!-- <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York,
+                        USA</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i
+                            class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i
+                            class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i
+                            class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i
+                            class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i
+                            class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Topbar End -->
+
+    <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
       <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
+        <!-- <a href="index.html" class="navbar-brand p-0">
           <img id="logoimage" alt="logo" />
-          <!-- <h1 class="m-0">TOT FD</h1> -->
-        </a>
+         
+        </a> -->
         <button
           class="navbar-toggler"
           type="button"
@@ -63,7 +125,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
             <a href="./index.html" class="nav-item nav-link">Home</a>
-            <a href="./about.html" class="nav-item nav-link active">About</a>
+            <a href="./about.html" class="nav-item nav-link">About</a>
             <a
               href="./service.html"
               class="nav-item nav-link"
@@ -72,8 +134,15 @@
               >Our Services</a
             >
             <a
-              href="./clients.html"
+              href="./products.html"
               class="nav-item nav-link"
+              id="products"
+              style="display: none"
+              >Our Products</a
+            >
+            <a
+              href="./clients.html"
+              class="nav-item nav-link active"
               id="clients"
               style="display: none"
               >Clients</a
@@ -83,7 +152,7 @@
               class="nav-item nav-link"
               id="founders"
               style="display: none"
-              >Founders</a
+              >Founders Section</a
             >
             <a
               href="./payments.html"
@@ -92,13 +161,6 @@
               style="display: none"
               >Payments</a
             >
-            <a
-              href="./products.html"
-              class="nav-item nav-link"
-              id="products"
-              style="display: none"
-              >Our Products</a
-            >
             <a href="./contact.html" class="nav-item nav-link">Contact Us</a>
             <div class="nav-item dropdown">
               <a
@@ -106,7 +168,7 @@
                 class="nav-link dropdown-toggle"
                 id="more"
                 data-bs-toggle="dropdown"
-                style="display: block"
+                style="display: none"
                 >More</a
               >
               <div
@@ -116,25 +178,24 @@
                   href="./gallery.html"
                   class="dropdown-item"
                   id="gallery"
-                  style="display: block"
-                  >Gallery</a
+                  style="display: none"
+                  >Brochures and Images</a
                 >
                 <!-- <a href="team.html" class="dropdown-item">Images</a> -->
                 <a
                   href="./reviews.html"
                   class="dropdown-item"
                   id="reviews"
-                  style="display: block"
-                  >Reviews</a
+                  style="display: none"
+                  >Testimonials</a
                 >
                 <a
                   href="./careers.html"
                   class="dropdown-item"
                   id="careers"
-                  style="display: block"
+                  style="display: none"
                   >Careers</a
                 >
-                <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
               </div>
             </div>
             <a href="./login.html" class="nav-item nav-link" id="login"
@@ -151,6 +212,7 @@
               >
               <div
                 class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start m-0"
+                style="max-height: 540px; overflow-y: auto"
               >
                 <a href="./content-edit.html" class="dropdown-item"
                   >Change Website Content <br />Services and Products</a
@@ -160,41 +222,47 @@
                   >Payments Leads</a
                 >
                 <a href="./careerLeads.html" class="dropdown-item"
-                  >Career Applicants</a
+                  >Carrer Leads</a
                 >
                 <a href="./add-gallery.html" class="dropdown-item"
-                  >Add Gallery</a
+                  >Add Brochure Images</a
                 >
                 <a href="./list-gallery.html" class="dropdown-item"
-                  >List Gallery</a
+                  >List Brochure Images</a
                 >
                 <a href="./uploadContact.html" class="dropdown-item">
                   Upload Contact Info</a
                 >
-                <a href="paymentLeads.html" class="dropdown-item">
+                <a href="uploadPayment.html" class="dropdown-item">
                   Upload Payment Info</a
                 >
                 <a href="upload-logo.html" class="dropdown-item">Upload Logo</a>
                 <a href="./uploadHomePageImg.html" class="dropdown-item"
-                  >Upload Home Page Image</a
+                  >Upload Home Page<br />Image</a
                 >
                 <a href="./selectLogo.html" class="dropdown-item"
                   >Select Logo</a
                 >
                 <a href="./selectHomePageImg.html" class="dropdown-item"
-                  >Select Home Page Image</a
+                  >Select Home Page<br />
+                  Image</a
+                >
+                <a href="./ManageNotifications.html" class="dropdown-item"
+                  >Manage<br />
+                  Notifications</a
                 >
                 <a href="./uploadReview.html" class="dropdown-item"
-                  >Manage Reviews</a
+                  >Manage Testimonials</a
                 >
                 <a href="./uploadCareers.html" class="dropdown-item"
                   >Manage Careers</a
                 >
                 <a href="uploadClient.html" class="dropdown-item"
-                  >Manage Clients</a
+                  >Manage Client</a
                 >
                 <a href="./uploadFounder.html" class="dropdown-item"
-                  >Manage Founders</a
+                  >Manage Founders<br />
+                  Message</a
                 >
                 <button
                   id="logout"
@@ -211,7 +279,6 @@
           </div>
         </div>
       </nav>
-
       <div
         class="container-fluid bg-primary py-5 bg-header"
         style="margin-bottom: 90px"

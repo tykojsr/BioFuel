@@ -2267,9 +2267,9 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
         margin-top: 8px;
     }
 
-    .navbar-brand > img {
+    /* .navbar-brand > img {
         width: 117px;
-    }
+    } */
 
     .navbar {
         margin-bottom: 0px;
