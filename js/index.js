@@ -208,7 +208,7 @@ async function servicesAndProducts() {
 				
 				
 				const icon = document.createElement("img");
-				icon.src = "https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/external-Education-education-and-learning-itim2101-lineal-color-itim2101-3.png";
+				icon.src = "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-energy-renewable-energy-flaticons-lineal-color-flat-icons-3.png";
 				icon.alt = "Service Icon"; 
 				
 				cardBody.appendChild(icon);
