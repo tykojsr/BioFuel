@@ -69,18 +69,19 @@
         font-weight: bold;
       }
 
-      .modal-content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 1);
-        /* Adjust the color and opacity */
-        z-index: -1;
-        /* Place the overlay behind the background image */
+      .modal-content {
+        background: url("./img/test.jpg") center center / cover;
+        width: 90%;
+        /* Adjust the initial width as needed */
+        max-width: 700px;
+        /* Set a maximum width to prevent the modal from becoming too wide */
+        max-height: 90vh;
+        /* Set a maximum height to prevent the modal from becoming too tall */
+        position: relative;
+        padding: 40px;
         border-radius: 10px;
+        color: white;
+        font-weight: bold;
       }
 
       .close {
@@ -96,17 +97,6 @@
         .modal-content {
           width: 90%;
         }
-      }
-    </style>
-    <style>
-      .close {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        color: black;
-        /* Change the color to black */
-        font-size: 24px;
-        cursor: pointer;
       }
     </style>
   </head>
