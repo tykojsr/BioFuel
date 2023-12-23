@@ -813,6 +813,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	getHomePageDataFromFirestoreAndSave();
 	getDataFromFirestoreAndSave();
 	servicesAndProducts();
+	displayVideoOnHomepage();
 	setTimeout(function () {
 		hideSpinner();
 	}, 2000);
@@ -929,4 +930,37 @@ function validateEmail(email) {
 function validateMobile(mobile) {
 	const re = /^\d{10}$/;
 	return re.test(mobile);
+}
+
+
+async function displayVideoOnHomepage() {
+    try {
+        const docSnapshot = await getDoc(homepageDocRef);
+        if (docSnapshot.exists()) {
+            const data = docSnapshot.data();
+            const videoUrl1 = data.videoUrl1;
+            const videoUrl2 = data.videoUrl2;
+
+            // Display the videos on the homepage
+            displayVideo(videoUrl1, 'videoPlayer1');
+            displayVideo(videoUrl2, 'videoPlayer2');
+        } else {
+            console.log("Homepage document does not exist.");
+        }
+    } catch (error) {
+        console.error("Error fetching video URLs from Firestore:", error);
+    }
+}
+
+function displayVideo(url, videoPlayerId) {
+    var videoPlayer = document.getElementById(videoPlayerId);
+    // var playButton = document.getElementById(playButtonId);
+
+    videoPlayer.src = url;
+    videoPlayer.load();
+
+    // Add event listener to play button
+    // playButton.addEventListener('click', function () {
+    //     videoPlayer.play();
+    // });
 }
