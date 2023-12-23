@@ -68,21 +68,21 @@ function populateFoundersTable() {
 			});
 
 			const textCenter = document.createElement("div");
-			textCenter.classList.add("text-center", "py-4");
+			textCenter.classList.add( "py-4");
 
 			const nameElement = document.createElement("h4");
-			nameElement.classList.add("text-primary");
+			nameElement.classList.add("text-center","text-primary");
 			nameElement.textContent = founder.founderName;
 			textCenter.appendChild(nameElement);
 
 			const designationElement = document.createElement("p");
-			designationElement.classList.add("text-uppercase", "m-0");
+			designationElement.classList.add("text-center","text-uppercase", "m-0");
 			designationElement.textContent = founder.founderDesignation;
 			designationElement.style.color = 'black';
 			textCenter.appendChild(designationElement);
 
 			const descriptionElement = document.createElement("p");
-			descriptionElement.classList.add("text-muted", "mt-3");
+			descriptionElement.classList.add("text-muted", "mt-3", "p-2");
 			descriptionElement.textContent = founder.founderDescription;
 			textCenter.appendChild(descriptionElement);
 

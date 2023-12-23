@@ -8,6 +8,7 @@ import { firestore } from "../js/firebase-config.js";
 
 const totfd = collection(firestore, "totfd");
 const contactAndPaymentDoc = doc(totfd, "ContactAndPayments");
+const messageElement = document.getElementById("message");
 
 const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", function (event) {
@@ -80,8 +81,11 @@ submitButton.addEventListener("click", function (event) {
 	updateDoc(contactAndPaymentDoc, data)
 		.then(() => {
 			console.log("Document successfully written!");
-			document.getElementById("message").textContent =
+			messageElement.textContent =
 				"Sucessfully Updated , Go to Home Page And Refresh to see the changes!";
+				messageElement.style.color = "green";
+				messageElement.style.display = "block";
+				window.scrollTo(0, 0);
 				setTimeout(() => {
 					document.getElementById("message").textContent ="";
 				}, 2000);
