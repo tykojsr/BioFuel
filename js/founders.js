@@ -60,7 +60,7 @@ function populateFoundersTable() {
 			teamImg.appendChild(teamSocial);
 			teamItem.appendChild(teamImg);
 			teamImg.addEventListener("mouseover", () => {
-				teamSocial.style.display = "block";
+				teamSocial.style.display = "none";
 			});
 
 			teamImg.addEventListener("mouseout", () => {

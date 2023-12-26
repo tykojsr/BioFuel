@@ -25,6 +25,7 @@ submitButton.addEventListener("click", function (event) {
 	const instagram = document.getElementById("instagram-link").value.trim();
 	const youtube = document.getElementById("youtube-link").value.trim();
 	const twitter = document.getElementById("twitter-link").value.trim();
+	const linkedin = document.getElementById("linkedin-link").value.trim();
 
 	const mobileRegex = /^[0-9]{10}$/;
 	const emailRegex = /\S+@\S+\.\S+/;
@@ -76,6 +77,7 @@ submitButton.addEventListener("click", function (event) {
 		instagram: instagram || null,
 		youtube: youtube || null,
 		twitter: twitter || null,
+		linkedin: linkedin || null,
 	};
 
 	updateDoc(contactAndPaymentDoc, data)
@@ -133,6 +135,9 @@ function populateForm() {
 				}
 				if (data.twitter) {
 					document.getElementById("twitter-link").value = data.twitter;
+				}
+				if (data.linkedin) {
+					document.getElementById("linkedin-link").value = data.linkedin;
 				}
 			}
 		})

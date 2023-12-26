@@ -210,7 +210,8 @@ function displaySocialIcons(data) {
 		(data.hasOwnProperty("facebook") ||
 			data.hasOwnProperty("instagram") ||
 			data.hasOwnProperty("youtube") ||
-			data.hasOwnProperty("twitter"))
+			data.hasOwnProperty("twitter")||
+			data.hasOwnProperty("linkedin"))
 	) {
 		connectWithUsBanner.style.display = "flex";
 
@@ -246,6 +247,14 @@ function displaySocialIcons(data) {
 			);
 			connectWithUsBanner.appendChild(twitterIcon);
 		}
+		if (data.linkedin && data.linkedin !== null) {
+			const linkedinIcon = createSocialIcon(
+				"linkedin",
+				data.linkedin,
+				"fab fa-linkedin"
+			);
+			connectWithUsBanner.appendChild(linkedinIcon);
+		}
 	}
 }
 function createSocialIcon(platform, url, iconClass) {
@@ -263,7 +272,7 @@ const data = JSON.parse(sessionStorage.getItem("contactAndPaymentData"));
 if (data && Object.keys(data).length > 0) {
 	if (
 		data &&
-		(data.facebook || data.instagram || data.youtube || data.twitter)
+		(data.facebook || data.instagram || data.youtube || data.twitter || data.linkedin)
 	) {
 		displaySocialIcons(data);
 	}
