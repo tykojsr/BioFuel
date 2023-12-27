@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (isValid) {
 			saveDataToFirebase();
 
-			emailjs.init("ChGpW4mCsZK5Ps-W1");
+			emailjs.init("2lPToPbLczjJAp1J8");
 			const templateParams = {
 				from_name: nameInput.value.trim(),
 				from_email: emailInput.value.trim() || "Not Provided",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				message: commentsInput.value.trim(),
 			};
 			emailjs
-				.send("service_9ptis9a", "template_gi1aqfk", templateParams)
+				.send("service_vdatjg2", "template_xd89fld", templateParams)
 				.then(function (response) {
 					console.log("Email sent:", response);
 					form.reset();

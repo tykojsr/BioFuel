@@ -925,9 +925,9 @@ document
 				status: "New",
 			};
 
-			emailjs.init("ChGpW4mCsZK5Ps-W1");
+			emailjs.init("2lPToPbLczjJAp1J8");
 			const templateParams = {
-				to_email: "office.crescentinstitute@gmail.com",
+				to_email: "info@mbpvtltd.com",
 				from_name: name,
 				from_email: email || "Not Provided",
 				mobile_number: mobile|| "Not Provided",
@@ -935,7 +935,7 @@ document
 				message: message,
 			};
 			emailjs
-				.send("service_9ptis9a", "template_gi1aqfk", templateParams)
+				.send("service_vdatjg2", "template_xd89fld", templateParams)
 				.then(function (response) {
 					console.log("Email sent:", response);
 				})
