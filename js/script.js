@@ -141,6 +141,17 @@ if (clientCollection && clientCollection.length > 0) {
 	console.log("No valid clients data found in session storage");
 }
 
+const clientListCollection = JSON.parse(sessionStorage.getItem("clientsList"));
+
+if (clientListCollection && clientListCollection.length > 0) {
+	const clientsLink = document.getElementById("Certifications");
+	clientsLink.style.display = "block";
+	// const clientsLink2 = document.getElementById("clients2");
+	// clientsLink2.style.display = "block";
+} else {
+	console.log("No valid clients data found in session storage");
+}
+
 function getHomepageDataFromSessionStorage() {
 	const homepageData = sessionStorage.getItem("homepageData");
 	return JSON.parse(homepageData);

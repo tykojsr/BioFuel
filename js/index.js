@@ -364,6 +364,32 @@ function createSocialIcon(platform, url, iconClass) {
 	return icon;
 }
 function getDataFromFirestoreAndSave() {
+
+	const productClientDocref =doc(totfdCollection, "clientProductRef");
+	getDoc(productClientDocref)
+		.then((docSnapshot) => {
+			if (docSnapshot.exists()) {
+				const data = docSnapshot.data();
+				const clientsInformationData = data.clients || [];
+				sessionStorage.setItem("clientsList", JSON.stringify(clientsInformationData));
+				if (Array.isArray(clientsInformationData) && clientsInformationData.length > 0) {
+					const clientsLink = document.getElementById("clients");
+					clientsLink.style.display = "block";
+					const clientsLink2 = document.getElementById("clients2");
+					clientsLink2.style.display = "block";
+				}
+
+				
+				
+			}
+		})
+		.catch((error) => {
+			console.error("Error checking for clients:", error);
+		});
+
+
+
+
 	const careersDocRef = doc(totfdCollection, "Careers");
 
 	getDoc(contactAndPaymentsDocRef)
@@ -732,10 +758,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				const clientsData = data.clients || [];
 				console.log(data.clients);
 				if (Array.isArray(clientsData) && clientsData.length > 0) {
-					const clientsLink = document.getElementById("clients");
+					const clientsLink = document.getElementById("Certifications");
 					clientsLink.style.display = "block";
-					const clientsLink2 = document.getElementById("clients2");
-					clientsLink2.style.display = "block";
+					// const clientsLink2 = document.getElementById("clients2");
+					// clientsLink2.style.display = "block";
 					const vendorSection = document.getElementById("vendorSection");
 					vendorSection.style.display = "block";
 
@@ -753,6 +779,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		.catch((error) => {
 			console.error("Error checking for clients:", error);
 		});
+
+
 });
 
 // function initializeClientCarousel() {
